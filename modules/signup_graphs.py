@@ -86,14 +86,14 @@ districts_bar_graph = px.bar(contagem, x='Bairro', y='Frequência')
 grade_graph = px.pie(escolaridade, values='count', names=escolaridade.index)
 grade_graph.update_traces(textinfo='percent+value')
 
-program_grade_graph = px.histogram(program_by_grade, x='escolaridade', y='programar', color='sabe programar', color_discrete_sequence=['red', 'green'])
+program_grade_graph = px.histogram(program_by_grade, x='escolaridade', y='programar', color='sabe programar', color_discrete_sequence=['#ef553b', '#00cc96'])
 program_grade_graph.update_layout(yaxis_title='Sabe programar', xaxis_title='')
 
 ### GENDER ###
 
 nomes = ['MENINAS', 'MENINOS'] 
 data = [qtd_meninas, qtd_meninos] 
-gender_proportion = px.pie(data, values=data, names = nomes, color_discrete_sequence=["blue", "red"])
+gender_proportion = px.pie(data, values=data, names = nomes, color_discrete_sequence=["#636efa", "#ef553b"])
 gender_proportion.update_traces(textinfo='percent+value')
 
 nomes = ['SABEM PROGRAMAR', 'NÃO SABEM'] 
@@ -113,13 +113,13 @@ gender_program.add_trace(male_program, row = 1, col = 2)
 ### KNOWS PROGRAMMING ###
 
 total_programming = df['sabe programar'].value_counts()
-knows_programming = px.pie(total_programming, values='count', names=total_programming.index, color_discrete_sequence=["blue", "red"])
+knows_programming = px.pie(total_programming, values='count', names=total_programming.index, color_discrete_sequence=["#ef553b", "#636efa"])
 knows_programming.update_traces(textinfo = 'percent+value')
 
 ### HAS COMPUTER ###
 
 total_has_pc = df['tem computador'].value_counts()
-has_computer = px.pie(total_has_pc, values='count', names=total_has_pc.index, color_discrete_sequence=["blue", "red"])
+has_computer = px.pie(total_has_pc, values='count', names=total_has_pc.index, color_discrete_sequence=["#636efa", "#ef553b"])
 has_computer.update_traces(textinfo = 'percent+value')
 
 # ----- Editing graphs layouts ----- #
